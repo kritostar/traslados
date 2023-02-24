@@ -7,12 +7,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><strong>IPROSS</strong> Gestión de Traslados</a>
+          <a class="navbar-brand" href="#"><strong>Traslados</strong> Gestión</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="{{Request::is('/') ? 'active' : ''}}"><a href="/">Lista de Trámites</a></li>
-            <li class="{{Request::is('tramite/alta') ? 'active' : ''}}"><a href="/tramite/alta">Alta de Trámite</a></li>
+            <li class="{{Request::is('/') ? 'active' : ''}}"><a href="/">Listar</a></li>
+            <li class="{{Request::is('tramite/alta') ? 'active' : ''}}"><a href="/tramite/alta">Alta</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
