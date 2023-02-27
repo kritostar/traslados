@@ -14,7 +14,7 @@ class TramitesController extends Controller
     public function home(){
         $tramites = Tramite::all();
         $tipo_tramites = TipoTramite::pluck('nombre', 'id');
-        return view('home')->with('tramites', $tramites)->with('tipo_tramites', $tipo_tramites);
+        return view('tramites')->with('tramites', $tramites)->with('tipo_tramites', $tipo_tramites);
     }
 
     public function ver(Request $request, $id_tramite){

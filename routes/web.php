@@ -17,10 +17,12 @@
 
 //Route::post('/submit', 'MessagesController@submit');
 
-Route::get('/', 'TramitesController@home');
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/login', 'LDAPController@login');
 Route::post('/login', 'LDAPController@log_user');
+
+Route::get('/tramites', 'TramitesController@home');
 
 Route::get('/tramite/alta', 'TramitesController@alta');
 Route::post('/tramite/alta', 'TramitesController@submit');
@@ -39,3 +41,11 @@ Route::get('/ws/abewsvalidaafi', 'WebserviceController@abewsvalidaafi');
 Route::post('/ws/abewsvalidaafi', 'WebserviceController@abewsvalidaafi');
 
 Route::get('/select2-autocomplete-ajax', 'TramitesController@dataAjax');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
