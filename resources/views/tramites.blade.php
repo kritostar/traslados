@@ -57,7 +57,9 @@
                             @endswitch
                         </td>
                         @if ($tramite->estado == 3)
-                            <td><a class="btn btn-default btn-block" href="/tramite/{{ $tramite->id }}/pdf" target="_blank"><span class="glyphicon glyphicon-print"></span></a></td>
+                            @can('imprimir-tramite')
+                                <td><a class="btn btn-default btn-block" href="/tramite/{{ $tramite->id }}/pdf" target="_blank"><span class="glyphicon glyphicon-print"></span></a></td>
+                            @endcan
                         @else
                             <td>&nbsp;</td>
                         @endif

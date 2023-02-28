@@ -48,4 +48,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/users/index', ['as' => 'users.index', 'uses' => 'UserController@index']);
+Route::get('/users/create', [ 'as' => 'users.create', 'uses' => 'UserController@create']);
