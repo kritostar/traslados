@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9eb8d6601d4074189e73fddd38f53a97",
+    "content-hash": "4a3123a64270fab182d04f14c3a8ab97",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -276,19 +276,23 @@
         },
         {
             "name": "econea/nusoap",
-            "version": "v0.9.13",
+            "version": "v0.9.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/f00b4r/nusoap.git",
-                "reference": "c177861ed6232668845a86b4aec40d5b61cab7f5"
+                "reference": "ae53073db524180a70a0e9007110e21cf065753c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/f00b4r/nusoap/zipball/c177861ed6232668845a86b4aec40d5b61cab7f5",
-                "reference": "c177861ed6232668845a86b4aec40d5b61cab7f5",
+                "url": "https://api.github.com/repos/f00b4r/nusoap/zipball/ae53073db524180a70a0e9007110e21cf065753c",
+                "reference": "ae53073db524180a70a0e9007110e21cf065753c",
                 "shasum": ""
             },
             "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-xml": "*",
+                "ext-zlib": "*",
                 "php": ">=5.4"
             },
             "require-dev": {
@@ -329,7 +333,7 @@
             ],
             "support": {
                 "issues": "https://github.com/f00b4r/nusoap/issues",
-                "source": "https://github.com/f00b4r/nusoap/tree/v0.9.13"
+                "source": "https://github.com/f00b4r/nusoap/tree/v0.9.14"
             },
             "funding": [
                 {
@@ -337,7 +341,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-12-11T11:15:03+00:00"
+            "time": "2023-02-13T07:42:38+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -1533,24 +1537,24 @@
         },
         {
             "name": "phpoption/phpoption",
-            "version": "1.9.0",
+            "version": "1.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/php-option.git",
-                "reference": "dc5ff11e274a90cc1c743f66c9ad700ce50db9ab"
+                "reference": "dd3a383e599f49777d8b628dadbb90cae435b87e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/php-option/zipball/dc5ff11e274a90cc1c743f66c9ad700ce50db9ab",
-                "reference": "dc5ff11e274a90cc1c743f66c9ad700ce50db9ab",
+                "url": "https://api.github.com/repos/schmittjoh/php-option/zipball/dd3a383e599f49777d8b628dadbb90cae435b87e",
+                "reference": "dd3a383e599f49777d8b628dadbb90cae435b87e",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.2.5 || ^8.0"
             },
             "require-dev": {
-                "bamarni/composer-bin-plugin": "^1.8",
-                "phpunit/phpunit": "^8.5.28 || ^9.5.21"
+                "bamarni/composer-bin-plugin": "^1.8.2",
+                "phpunit/phpunit": "^8.5.32 || ^9.6.3 || ^10.0.12"
             },
             "type": "library",
             "extra": {
@@ -1592,7 +1596,7 @@
             ],
             "support": {
                 "issues": "https://github.com/schmittjoh/php-option/issues",
-                "source": "https://github.com/schmittjoh/php-option/tree/1.9.0"
+                "source": "https://github.com/schmittjoh/php-option/tree/1.9.1"
             },
             "funding": [
                 {
@@ -1604,7 +1608,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-07-30T15:51:26+00:00"
+            "time": "2023-02-25T19:38:58+00:00"
         },
         {
             "name": "psr/container",
@@ -2052,6 +2056,88 @@
             "time": "2023-02-09T10:38:43+00:00"
         },
         {
+            "name": "spatie/laravel-permission",
+            "version": "5.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-permission.git",
+                "reference": "10d4c14dd66f82ce777ab76f5708bd14ff5a1ef8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/10d4c14dd66f82ce777ab76f5708bd14ff5a1ef8",
+                "reference": "10d4c14dd66f82ce777ab76f5708bd14ff5a1ef8",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/auth": "^6.0|^7.0|^8.0",
+                "illuminate/container": "^6.0|^7.0|^8.0",
+                "illuminate/contracts": "^6.0|^7.0|^8.0",
+                "illuminate/database": "^6.0|^7.0|^8.0",
+                "php": "^7.2.5|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^4.0|^5.0|^6.0",
+                "phpunit/phpunit": "^8.0|^9.0",
+                "predis/predis": "^1.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\Permission\\PermissionServiceProvider"
+                    ]
+                },
+                "branch-alias": {
+                    "dev-main": "5.x-dev",
+                    "dev-master": "5.x-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Spatie\\Permission\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Permission handling for Laravel 6.0 and up",
+            "homepage": "https://github.com/spatie/laravel-permission",
+            "keywords": [
+                "acl",
+                "laravel",
+                "permission",
+                "permissions",
+                "rbac",
+                "roles",
+                "security",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/laravel-permission/issues",
+                "source": "https://github.com/spatie/laravel-permission/tree/5.3.2"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-11-17T10:45:32+00:00"
+        },
+        {
             "name": "swiftmailer/swiftmailer",
             "version": "v6.3.0",
             "source": {
@@ -2219,16 +2305,16 @@
         },
         {
             "name": "symfony/css-selector",
-            "version": "v5.4.19",
+            "version": "v5.4.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
-                "reference": "f4a7d150f5b9e8f974f6f127d8167e420d11fc62"
+                "reference": "95f3c7468db1da8cc360b24fa2a26e7cefcb355d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/css-selector/zipball/f4a7d150f5b9e8f974f6f127d8167e420d11fc62",
-                "reference": "f4a7d150f5b9e8f974f6f127d8167e420d11fc62",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/95f3c7468db1da8cc360b24fa2a26e7cefcb355d",
+                "reference": "95f3c7468db1da8cc360b24fa2a26e7cefcb355d",
                 "shasum": ""
             },
             "require": {
@@ -2265,7 +2351,7 @@
             "description": "Converts CSS selectors to XPath expressions",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/css-selector/tree/v5.4.19"
+                "source": "https://github.com/symfony/css-selector/tree/v5.4.21"
             },
             "funding": [
                 {
@@ -2281,7 +2367,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-01-01T08:32:19+00:00"
+            "time": "2023-02-14T08:03:56+00:00"
         },
         {
             "name": "symfony/debug",
@@ -2964,16 +3050,16 @@
         },
         {
             "name": "symfony/mime",
-            "version": "v5.4.19",
+            "version": "v5.4.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/mime.git",
-                "reference": "a858429a9c704edc53fe057228cf9ca282ba48eb"
+                "reference": "ef57d9fb9cdd5e6b2ffc567d109865d10b6920cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/mime/zipball/a858429a9c704edc53fe057228cf9ca282ba48eb",
-                "reference": "a858429a9c704edc53fe057228cf9ca282ba48eb",
+                "url": "https://api.github.com/repos/symfony/mime/zipball/ef57d9fb9cdd5e6b2ffc567d109865d10b6920cd",
+                "reference": "ef57d9fb9cdd5e6b2ffc567d109865d10b6920cd",
                 "shasum": ""
             },
             "require": {
@@ -3028,7 +3114,7 @@
                 "mime-type"
             ],
             "support": {
-                "source": "https://github.com/symfony/mime/tree/v5.4.19"
+                "source": "https://github.com/symfony/mime/tree/v5.4.21"
             },
             "funding": [
                 {
@@ -3044,7 +3130,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-01-09T05:43:46+00:00"
+            "time": "2023-02-21T19:46:44+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -5193,16 +5279,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "8.5.32",
+            "version": "8.5.33",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "375686930d05c9fd7d20f6e5fc38121e8d7a9d55"
+                "reference": "7d1ff0e8c6b35db78ff13e3e05517d7cbf7aa32e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/375686930d05c9fd7d20f6e5fc38121e8d7a9d55",
-                "reference": "375686930d05c9fd7d20f6e5fc38121e8d7a9d55",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/7d1ff0e8c6b35db78ff13e3e05517d7cbf7aa32e",
+                "reference": "7d1ff0e8c6b35db78ff13e3e05517d7cbf7aa32e",
                 "shasum": ""
             },
             "require": {
@@ -5270,7 +5356,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/8.5.32"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/8.5.33"
             },
             "funding": [
                 {
@@ -5286,7 +5372,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-01-26T08:30:25+00:00"
+            "time": "2023-02-27T13:04:50+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
