@@ -13,6 +13,7 @@ class RoleAndPermissionSeeder extends Seeder
         Permission::create(['name' => 'auditar-tramite']);
         Permission::create(['name' => 'eliminar-tramite']);
         Permission::create(['name' => 'imprimir-tramite']);
+        Permission::create(['name' => 'admin-users']);
 
 
         $adminRole = Role::create(['name' => 'Admin']);
@@ -24,6 +25,7 @@ class RoleAndPermissionSeeder extends Seeder
             'auditar-tramite',
             'eliminar-tramite',
             'imprimir-tramite',
+            'admin-users',
         ]);
 
         $editorRole->givePermissionTo([

@@ -63,27 +63,34 @@
                         @else
                             <td>&nbsp;</td>
                         @endif
+
+                        @can('auditar-tramite')
                         @if ($tramite->estado != 4)
                             <td class="col-xs-1"><a class="btn btn-primary btn-block" href="/tramite/{{ $tramite->id }}/auditar">Auditar</a></td>
                         @else
                             <td class="col-xs-1"><a class="btn btn-disabled btn-block" href="#" disabled>Auditar</a></td>
                         @endif
+                        @endcan
+
+                        @can('eliminar-tramite')
                         @if ($tramite->estado == 1)
                             <td class="col-xs-1"><a class="btn btn-danger btn-block" href="/tramite/{{ $tramite->id }}/eliminar">Eliminar</a></td>
                         @else
                             <td class="col-xs-1"><a class="btn btn-disabled btn-block" href="#" disabled>Eliminar</a></td>
                         @endif
+                        @endcan
                     </tr>
                 @endforeach
             @endif
         </tbody>
     </table>
-
+    @can('alta-tramite')
     <div class="row">
         <div class="col-xs-12 col-sm-2 col-sm-offset-10">
             <a class="btn btn-success btn-block" href="/tramite/alta">Alta de Trámite</a>
         </div>
     </div>
+    @endcan
 
 @endsection
 

@@ -11,6 +11,9 @@
         </a>
     </div>
 
+    @if (session('success'))
+        <span class="text-success">{{ session('success') }}</span>
+    @endif
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">

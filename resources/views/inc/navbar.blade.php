@@ -17,12 +17,18 @@
         <!-- Authentication Links -->
         @guest
         <li class="{{Request::is('/login') ? 'active' : ''}}"><a href="/login">Ingrese</a></li>
+        <!--
         @if (Route::has('register'))
         <li class="{{Request::is('/register') ? 'active' : ''}}"><a href="/register">Registrarse</a></li>
-        @endif
+        @endif-->
         @else
         <li class="{{Request::is('/') ? 'active' : ''}}"><a href="/tramites">Listar</a></li>
+        @can('alta-tramite')
         <li class="{{Request::is('tramite/alta') ? 'active' : ''}}"><a href="/tramite/alta">Alta</a></li>
+        @endcan
+        @can('admin-users')
+        <li class="{{Request::is('/user/index') ? 'active' : ''}}"><a href="/users/index">Usuarios</a></li>
+        @endcan
         <li> <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
             {{ Auth::user()->name }} - {{ __('Logout') }}

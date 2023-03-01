@@ -17,7 +17,7 @@
             <h6 class="m-0 font-weight-bold text-primary">Add New User</h6>
         </div>
         <div class="card-body">
-            <form method="POST" action="">
+        <form method="POST" action="{{route('users.store')}}">
                 @csrf
                 <div class="form-group row">
 
@@ -33,6 +33,9 @@
                         <span style="color:red;">*</span>Email</label>
                         <input type="email" class="form-control form-control-user" id="exampleEmail"
                             placeholder="Email" required name="email" value="">
+
+                    </div>
+
 
                     </div>
 
