@@ -22,17 +22,23 @@
                 <div class="form-group row">
 
                     {{-- Name --}}
-                    <div class="col-sm-6 mb-3 mb-sm-0">
+                    <div class="col-sm-4 mb-3 mb-sm-0">
                         <span style="color:red;">*</span>Name</label>
                         <input type="text" class="form-control form-control-user" id="exampleName"
                             placeholder="Name" required name="name" value="">
 
                     </div>
                     {{-- Email --}}
-                    <div class="col-sm-6 mb-3 mb-sm-0">
+                    <div class="col-sm-4 mb-3 mb-sm-0">
                         <span style="color:red;">*</span>Email</label>
                         <input type="email" class="form-control form-control-user" id="exampleEmail"
                             placeholder="Email" required name="email" value="">
+                    </div>
+                    {{-- Permission --}}
+                    <div class="col-sm-4 mb-3 mb-sm-0">
+                        <span style="color:red;">*</span>Admin?</label>
+                        <input type="checkbox" class="form-control form-control-user" id="exampleAdmin"
+                            placeholder="Admin" name="admin" value="yes">
 
                     </div>
 

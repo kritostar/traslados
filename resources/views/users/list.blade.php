@@ -26,8 +26,9 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Name</th>
+                            <th>Nombre</th>
                             <th>Email</th>
+                            <th>Persmisos</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,6 +36,14 @@
                            <tr>
                                <td>{{$user->name}}</td>
                                <td>{{$user->email}}</td>
+                               <td>
+                                <ul>
+                               <?php 
+                                foreach ($user->getPermissionNames() as $permission)
+                                echo '<li>',$permission,'</li>';
+                                ?>
+                                </ul>
+                               </td>
                            </tr>
                        @endforeach
                     </tbody>

@@ -23,7 +23,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/login', 'LDAPController@login');
 Route::post('/login', 'LDAPController@log_user');
 
-Route::get('/tramites', 'TramitesController@home');
+Route::get('/tramites', 'TramitesController@home')->middleware('can:listar-tramite');
 
 Route::get('/tramite/alta', 'TramitesController@alta')->middleware('can:alta-tramite');
 Route::post('/tramite/alta', 'TramitesController@submit')->middleware('can:alta-tramite');

@@ -7,6 +7,7 @@ use App\User;
 use App\Http\Requests\UpdateUserRequest;
 use DB;
 use Hash;
+use Spatie\Permission\Models\Permission;
 
 class UserController extends Controller
 {
@@ -68,9 +69,24 @@ class UserController extends Controller
 
             $create_user->sendWelcomeNotification($expiresAt);
 
-            $create_user->assignRole('Editor');
-            $create_user->givePermissionTo(['listar-tramite',
-            'imprimir-tramite']);
+            if ($request->admin == 'yes') {
+                $create_user->assignRole('Admin');
+                $create_user->givePermissionTo([
+                    'listar-tramite',
+                    'alta-tramite',
+                    'auditar-tramite',
+                    'eliminar-tramite',
+                    'imprimir-tramite',
+                    'admin-users'
+                ]);
+            } else {
+                $create_user->assignRole('Editor');
+                $create_user->givePermissionTo([
+                    'listar-tramite',
+                    'imprimir-tramite'
+                ]);
+            }
+
 
             DB::commit();
             return redirect()->route('users.index')->with('success', 'User Stored Successfully.');
