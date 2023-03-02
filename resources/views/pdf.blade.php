@@ -34,7 +34,7 @@
                 <p>
                     <strong>Fecha Impresión:</strong> {{ date("d/m/Y")}}
                     <br>
-                    <strong>Usuario:</strong> nombredeusuario
+                    <strong>Usuario:</strong> {{ Auth::user()->name }}
                 </p>
             </div>
             <div class="col-xs-2 text-right">
@@ -58,7 +58,11 @@
                             </div>
                             <div class="col-xs-4">
                                 <label>Usuario solicita</label><br>
-                                <strong>nombredeusuario</strong>
+                                <?php 
+                                use App\User;
+                                $user = User::where('id', $tramite->uid)->get();
+                                ?>
+                                <strong>{{ $user[0]->name }}</strong>
                             </div>
                             <div class="col-xs-4">
                                 <label>Tipo de Trámite</label><br>

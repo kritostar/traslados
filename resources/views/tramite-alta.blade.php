@@ -2,7 +2,8 @@
 
 @section('content')
     <h1>Alta de Trámite</h1>
-
+    <a href="/tramites" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+        <i class="fas fa-arrow-left fa-sm text-white-50"></i> Atras</a>
     {!! Form::open(['url' => '/tramite/alta', 'id' => 'alta_form', 'files' => true]) !!}
         <div class="row">
             <div class="form-group col-xs-12 col-sm-3">

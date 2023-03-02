@@ -3,7 +3,7 @@
 @section('content')
     <h1>¿Eliminar Tramite #{{ $tramite->id }}?</h1>
 
-    <a class="btn btn-primary" href="/">Volver</a>
+    <a class="btn btn-primary" href="/tramites">Atras</a>
     <hr/>
 
     <div class="row">
@@ -197,7 +197,7 @@
                     <hr>
                     <input type="hidden" name="id_tramite" value="{{ $tramite->id }}" />
                     <button type="submit" name="eliminar" id="eliminar" class="btn btn-danger" disabled>Sí, Eliminar</button>
-                    <a href="/" class="btn btn-success">No, Cancelar</a>
+                    <a href="/tramites" class="btn btn-success">No, Cancelar</a>
                 {!! Form::close() !!}
             </ul>
         </div>

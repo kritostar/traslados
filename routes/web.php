@@ -52,8 +52,10 @@ Auth::routes();
 Route::get('/users/index', ['as' => 'users.index', 'uses' => 'UserController@index'])->middleware('can:admin-users');
 Route::post('/users/create', [ 'as' => 'users.create', 'uses' => 'UserController@create'])->middleware('can:admin-users');
 Route::get('/users/create', [ 'as' => 'users.create', 'uses' => 'UserController@create'])->middleware('can:admin-users');
+Route::get('/users/{id_user}/show', 'UserController@show')->middleware('can:admin-users');
 
-Route::post('/users/store', [ 'as' => 'users.store', 'uses' => 'UserController@store']);
+Route::post('/users/store', [ 'as' => 'users.store', 'uses' => 'UserController@store'])->middleware('can:admin-users');
+Route::post('/users/update', [ 'as' => 'users.update', 'uses' => 'UserController@update'])->middleware('can:admin-users');
 
 Route::group(['middleware' => ['web', WelcomesNewUsers::class,]], function () {
     Route::get('welcome/{user}', [MyWelcomeController::class, 'showWelcomeForm'])->name('welcome');

@@ -3,7 +3,8 @@
 @section('content')
     <h1>Auditar Tramite #{{ $tramite->id }}</h1>
 
-    <a class="btn btn-primary" href="/">Volver</a>
+    <a href="/tramites" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                class="fas fa-arrow-left fa-sm text-white-50"></i> Atras</a>
     <hr/>
 
     <div class="row">

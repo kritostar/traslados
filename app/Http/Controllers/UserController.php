@@ -7,6 +7,7 @@ use App\User;
 use App\Http\Requests\UpdateUserRequest;
 use DB;
 use Hash;
+use RoleAndPermissionSeeder;
 use Spatie\Permission\Models\Permission;
 
 class UserController extends Controller
@@ -102,11 +103,16 @@ class UserController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View 
      */
-    public function show($id)
+    public function show(Request $request, $id_user)
     {
-        //
+        $user = User::find($id_user);
+        $rol = preg_replace("/[^a-zA-Z0-9]+/", "", $user->getRoleNames());
+
+        return view('users.update')
+        ->with('user', $user)
+        ->with('rol', $rol);
     }
 
     /**
@@ -125,10 +131,51 @@ class UserController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
+        try {
+            DB::beginTransaction();
+
+            $user = User::find($request->id_user);
+            $user->syncRoles([]);
+            $user->syncPermissions();
+            // Logic For Save User Data
+
+            if ($request->admin == 'yes') {
+
+                $user->assignRole('Admin');
+
+                $user->givePermissionTo([
+                    'listar-tramite',
+                    'alta-tramite',
+                    'auditar-tramite',
+                    'eliminar-tramite',
+                    'imprimir-tramite',
+                    'admin-users'
+                ]);
+            } else {
+
+                $user->assignRole('Editor');
+
+                $user->givePermissionTo([
+                    'listar-tramite',
+                    'imprimir-tramite'
+                ]);
+            }
+
+
+            DB::commit();
+            return redirect()->route('users.index')->with('success', 'User Stored Successfully.');
+    
+    
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            throw $th;
+        }
+
+
     }
 
     /**
