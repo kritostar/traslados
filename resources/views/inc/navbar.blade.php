@@ -12,9 +12,6 @@
     <div id="navbar" class="collapse navbar-collapse">
 
       <ul class="nav navbar-nav">
-        <!-- Right Side Of Navbar -->
-
-        <!-- Authentication Links -->
         @guest
         <li class="{{Request::is('/login') ? 'active' : ''}}"><a href="/login">Ingrese</a></li>
         <!--
@@ -29,15 +26,28 @@
         @can('admin-users')
         <li class="{{Request::is('/user/index') ? 'active' : ''}}"><a href="/users/index">Gestion Usuarios</a></li>
         @endcan
-        <li> <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-          {{ __('Logout') }} ({{ Auth::user()->name }})
-          </a>
-          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        <li class="dropdown" style="margin-top: 11px;">
+        <div>
+          <button class="dropdown-toggle" type="button" data-toggle="dropdown">{{ Auth::user()->name }}
+          <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+          <li> <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                            document.getElementById('logout-form').submit();">
+            {{ __('Logout') }} 
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf
-          </form>
+            </form>
+          </li>
+          <li> <a class="dropdown-item" href="{{ route('change.password') }}">
+            {{ __('Cambiar Contrasena') }} 
+            </a>
+          </li>
+          </ul>
+        </div>
         </li>
-
+        
+       
         @endguest
 
       </ul>

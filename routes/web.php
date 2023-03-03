@@ -57,6 +57,9 @@ Route::get('/users/{id_user}/show', 'UserController@show')->middleware('can:admi
 Route::post('/users/store', [ 'as' => 'users.store', 'uses' => 'UserController@store'])->middleware('can:admin-users');
 Route::post('/users/update', [ 'as' => 'users.update', 'uses' => 'UserController@update'])->middleware('can:admin-users');
 
+Route::get('/user/change-password', 'ChangePasswordController@index');
+Route::post('/user/change-password', 'ChangePasswordController@store')->name('change.password');
+
 Route::group(['middleware' => ['web', WelcomesNewUsers::class,]], function () {
     Route::get('welcome/{user}', [MyWelcomeController::class, 'showWelcomeForm'])->name('welcome');
     Route::post('welcome/{user}', [MyWelcomeController::class, 'savePassword']);
