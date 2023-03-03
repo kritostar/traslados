@@ -54,11 +54,11 @@ class UserController extends Controller
         try {
             DB::beginTransaction();
             // Logic For Save User Data
-    
+            $password =  bin2hex(openssl_random_pseudo_bytes(16));
             $create_user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
-                'password' => Hash::make('traslados2023')
+                'password' => Hash::make($password)
             ]);
     
             if(!$create_user){
@@ -68,7 +68,7 @@ class UserController extends Controller
             }
             $expiresAt = now()->addDay();
 
-            $create_user->sendWelcomeNotification($expiresAt);
+            $create_user->sendWelcomeNotification($expiresAt, $password);
 
             if ($request->admin == 'yes') {
                 $create_user->assignRole('Admin');

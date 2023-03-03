@@ -46,9 +46,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function sendWelcomeNotification(\Carbon\Carbon $validUntil)
+    public function sendWelcomeNotification(\Carbon\Carbon $validUntil, $pass)
     {
-        $this->notify(new WelcomeNotification());
+        $this->notify(new WelcomeNotification($pass));
     }
     
     /**

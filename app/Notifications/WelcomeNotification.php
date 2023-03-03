@@ -11,14 +11,17 @@ class WelcomeNotification extends Notification
 {
     use Queueable;
 
+    private $password;
+
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($pass)
     {
         //
+        $this->password = $pass;
     }
 
     /**
@@ -41,9 +44,9 @@ class WelcomeNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('Bienvenido a Traslados App. Su contraseña es <b>traslados2023</b>.')
-                    ->line('Por favor, resetee su contraseña')
-                    ->action('Reset aqui', url('/password/reset'))
+                    ->line('Bienvenido a Traslados App. Su contraseña es: '.$this->password.'')
+                    ->action('Ingrese aqui', url('/login'))
+                    ->line('Puede reestablecer su contraseña ingresando a "Olvido su Contraseña".')
                     ->line('Gracias por utilizar nuestra aplicacion!');
     }
 
