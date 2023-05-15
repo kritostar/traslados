@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use Illuminate\Http\Request;
 use App\Tramite;
 use App\TipoTramite;
@@ -65,7 +66,7 @@ class TramitesController extends Controller
         $tramite->tipo_gestion = $request->input('tipo_gestion');
         $tramite->nombre = $request->input('nombre');
         $tramite->afiliado = $request->input('afiliado');
-
+        $tramite->uid = Auth::user()->id;
         $tramite->certificado_discapacidad = $request->input('certificado_discapacidad');
         $tramite->resol_154_85 = $request->input('resol_154_85');
         $tramite->situacion_traslado = $request->input('situacion_traslado');
